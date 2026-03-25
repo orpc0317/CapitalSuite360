@@ -86,7 +86,7 @@ function GroupIcon({ name, stroke }) {
 
 export default function ModuleTile({ group }) {
   const accent = ACCENTS[group.accent] ?? ACCENTS.sky
-  const destino = group.items[0]?.path ?? '/'
+  const destino = `/catalogos/grupo/${group.id}`
   const count = group.items.length
 
   return (

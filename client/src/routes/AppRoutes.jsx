@@ -12,6 +12,7 @@ import ResetPassword from '../pages/auth/ResetPassword'
 
 // Páginas principales
 import Dashboard from '../pages/dashboard/Dashboard'
+import GroupHub from '../pages/catalogos/GroupHub'
 import PlaceholderCatalogo from '../pages/catalogos/PlaceholderCatalogo'
 
 // Spinner compartido entre guards
@@ -66,6 +67,9 @@ export default function AppRoutes() {
 
           {/* Landing page */}
           <Route path="/" element={<Dashboard />} />
+
+          {/* Hubs de grupos — pantalla intermedia del launcher */}
+          <Route path="/catalogos/grupo/:groupId" element={<GroupHub />} />
 
           {/* Catálogos — Organización */}
           <Route path="/catalogos/grupos-economicos" element={cat('Grupos Económicos', 'Administración de grupos económicos multi-empresa.')} />
