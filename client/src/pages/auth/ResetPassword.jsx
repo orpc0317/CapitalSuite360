@@ -15,8 +15,8 @@ export default function ResetPassword() {
     e.preventDefault()
     setError(null)
 
-    if (contrasena.length < 6) {
-      setError('La contraseña debe tener al menos 6 caracteres.')
+    if (contrasena.length < 8) {
+      setError('La contraseña debe tener al menos 8 caracteres.')
       return
     }
     if (contrasena !== confirmar) {
@@ -91,10 +91,11 @@ export default function ResetPassword() {
                 <input
                   type={mostrar ? 'text' : 'password'}
                   required
+                  autoComplete="new-password"
                   value={contrasena}
                   onChange={(e) => setContrasena(e.target.value)}
                   className="w-full border border-gray-300 rounded-lg pl-10 pr-11 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Mínimo 6 caracteres"
+                  placeholder="Mínimo 8 caracteres"
                 />
                 <button
                   type="button"
@@ -119,6 +120,7 @@ export default function ResetPassword() {
                 <input
                   type={mostrar ? 'text' : 'password'}
                   required
+                  autoComplete="new-password"
                   value={confirmar}
                   onChange={(e) => setConfirmar(e.target.value)}
                   className="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"

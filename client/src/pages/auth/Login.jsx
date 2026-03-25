@@ -1,32 +1,23 @@
 // Página de Login — autenticación con Supabase Auth
-import { useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { supabase } from '../../services/supabaseClient'
-import { useAuth } from '../../context/AuthContext'
 
 export default function Login() {
-  const { usuario } = useAuth()
-  const navigate = useNavigate()
   const location = useLocation()
 
   const [correo, setCorreo] = useState('')
   const [contrasena, setContrasena] = useState('')
   const [mostrarContrasena, setMostrarContrasena] = useState(false)
   const [error, setError] = useState(null)
-  const [exito, setExito] = useState(null)
+  // Inicializar con el mensaje de éxito si viene del flujo de reset de contraseña
+  const [exito, setExito] = useState(
+    location.state?.resetExitoso ? 'Contraseña actualizada. Ya puedes iniciar sesión.' : null
+  )
   const [cargando, setCargando] = useState(false)
 
-  // Si hay sesión activa, redirigir al dashboard
-  useEffect(() => {
-    if (usuario) navigate('/', { replace: true })
-  }, [usuario, navigate])
-
   // Mostrar mensaje de éxito al volver del flujo de reset
-  useEffect(() => {
-    if (location.state?.resetExitoso) {
-      setExito('Contraseña actualizada. Ya puedes iniciar sesión.')
-    }
-  }, [location.state])
+  // (ya inicializado en useState; mantenemos setExito para poder ocultarlo)
 
   function traducirError(mensaje) {
     if (!mensaje) return 'Ocurrió un error. Intenta de nuevo.'

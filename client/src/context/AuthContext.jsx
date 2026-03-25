@@ -9,13 +9,19 @@ export function AuthProvider({ children }) {
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    // Obtener sesión activa al montar
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUsuario(session?.user ?? null)
-      setCargando(false)
-    })
+    // Obtener sesión activa al montar (con manejo de error de red)
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setUsuario(session?.user ?? null)
+      })
+      .catch(() => {
+        setUsuario(null)
+      })
+      .finally(() => {
+        setCargando(false)
+      })
 
-    // Escuchar cambios de sesión (login, logout, refresh)
+    // Escuchar cambios de sesión (login, logout, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_evento, session) => {
       setUsuario(session?.user ?? null)
     })
@@ -35,6 +41,7 @@ export function AuthProvider({ children }) {
 }
 
 // Hook helper para acceder al contexto de autenticación
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   const contexto = useContext(AuthContext)
   if (!contexto) throw new Error('useAuth debe usarse dentro de <AuthProvider>')
