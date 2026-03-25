@@ -1,7 +1,46 @@
 /* CapitalSuite360 — Estilos globales */
 @import "tailwindcss";
 
+/* =============================================================================
+   DESIGN TOKENS
+   Para cambiar el tema visual del sistema, modifica las variables de "Brand"
+   y "Shell / Layout". El resto se actualiza automáticamente.
+   ============================================================================= */
 :root {
+
+  /* --- Brand (colores corporativos) --------------------------------------- */
+  /* Cambiar estos valores para actualizar toda la paleta de la app           */
+  --cs-brand-50:  #eff6ff;
+  --cs-brand-100: #dbeafe;
+  --cs-brand-200: #bfdbfe;
+  --cs-brand-500: #3b82f6;
+  --cs-brand-600: #2563eb;
+  --cs-brand-700: #1d4ed8;
+  --cs-brand-900: #1e3a8a;
+
+  /* --- Tipografía ---------------------------------------------------------- */
+  --cs-font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --cs-font-mono: ui-monospace, Consolas, monospace;
+  --cs-font-size-base: 14px;
+
+  /* --- Shell / Layout ----------------------------------------------------- */
+  --cs-sidebar-bg:     #0f172a;   /* fondo del sidebar  */
+  --cs-sidebar-width:  260px;     /* ancho expandido     */
+  --cs-header-bg:      #ffffff;
+  --cs-header-height:  56px;
+  --cs-bg-page:        #f8fafc;   /* fondo área de contenido */
+
+  /* --- Sidebar: texto y estados ------------------------------------------ */
+  --cs-sidebar-text:        rgba(148, 163, 184, 1);  /* default            */
+  --cs-sidebar-text-hover:  rgba(241, 245, 249, 1);  /* hover              */
+  --cs-sidebar-text-active: #ffffff;                 /* ítem activo        */
+  --cs-sidebar-active-bg:   rgba(59, 130, 246, 0.15);/* fondo ítem activo  */
+  --cs-sidebar-group-label: rgba(100, 116, 139, 1);  /* header de grupo    */
+  --cs-sidebar-divider:     rgba(255, 255, 255, 0.05);
+
+  /* --- Font rendering ---------------------------------------------------- */
+  font-family: var(--cs-font-sans);
+  font-size: var(--cs-font-size-base);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
