@@ -1,13 +1,8 @@
 // Dashboard principal — página de inicio tras el login
 import { useAuth } from '../../context/AuthContext'
-import { supabase } from '../../services/supabaseClient'
 
 export default function Dashboard() {
-  const { usuario } = useAuth()
-
-  async function manejarLogout() {
-    await supabase.auth.signOut()
-  }
+  const { usuario, cerrarSesion } = useAuth()
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -15,7 +10,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-gray-800">CapitalSuite360</h1>
           <button
-            onClick={manejarLogout}
+            onClick={cerrarSesion}
             className="text-sm bg-red-100 text-red-700 hover:bg-red-200 px-4 py-2 rounded-lg transition"
           >
             Cerrar sesión
