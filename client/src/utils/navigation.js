@@ -30,6 +30,9 @@ export const NAV_ITEMS = [
       {
         id: 'organizacion',
         label: 'Organización',
+        description: 'Estructura legal, empresas y accesos al sistema',
+        accent: 'sky',
+        icon: 'organizacion',
         items: [
           {
             id: 'grupos-economicos',
@@ -54,6 +57,9 @@ export const NAV_ITEMS = [
       {
         id: 'proyectos',
         label: 'Proyectos',
+        description: 'Proyectos, fases, manzanas y lotes disponibles',
+        accent: 'emerald',
+        icon: 'proyectos',
         items: [
           {
             id: 'proyectos',
@@ -83,6 +89,9 @@ export const NAV_ITEMS = [
       {
         id: 'personal',
         label: 'Personal',
+        description: 'Supervisores, coordinadores, vendedores y cobradores',
+        accent: 'violet',
+        icon: 'personal',
         items: [
           {
             id: 'supervisores',
@@ -112,6 +121,9 @@ export const NAV_ITEMS = [
       {
         id: 'clientes',
         label: 'Clientes',
+        description: 'Registro y seguimiento de compradores de lotes',
+        accent: 'amber',
+        icon: 'clientes',
         items: [
           {
             id: 'clientes',
@@ -126,6 +138,9 @@ export const NAV_ITEMS = [
       {
         id: 'finanzas',
         label: 'Finanzas',
+        description: 'Bancos, cuentas bancarias y configuración de monedas',
+        accent: 'teal',
+        icon: 'finanzas',
         items: [
           {
             id: 'bancos',
@@ -150,6 +165,9 @@ export const NAV_ITEMS = [
       {
         id: 'referencia',
         label: 'Referencia Geográfica',
+        description: 'Departamentos y municipios de Guatemala',
+        accent: 'rose',
+        icon: 'referencia',
         items: [
           {
             id: 'departamentos',
