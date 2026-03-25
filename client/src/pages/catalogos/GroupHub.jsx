@@ -4,7 +4,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { NAV_ITEMS } from '../../utils/navigation'
 import { ACCENTS } from '../../utils/accentColors'
-import { GroupIcon } from '../../utils/catalogIcons'
+import { GroupIcon, ItemIcon } from '../../utils/catalogIcons'
 
 export default function GroupHub() {
   const { groupId } = useParams()
@@ -64,10 +64,10 @@ export default function GroupHub() {
                        focus-visible:ring-2 focus-visible:ring-offset-2"
             style={{ '--tw-ring-color': accent.stroke }}
           >
-            {/* Ícono del ítem — mismo ícono del grupo para consistencia visual */}
+            {/* Ícono único por módulo */}
             <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
               style={{ background: accent.bg }}>
-              <GroupIcon name={foundGroup.icon} stroke={accent.stroke} size={20} />
+              <ItemIcon id={item.id} stroke={accent.stroke} size={20} />
             </div>
 
             {/* Nombre */}
